@@ -1,36 +1,32 @@
 <?php
 
-class Motorista
-{
-    private $nome;
-    private $cpf;
-    private $cnh;
-    private $validadeCnh;
+class Motorista {
 
-    public function __construct($nome, $cpf, $cnh, $validadeCnh) 
-    {
-        $this->setNome($nome);
+    private string $nome;
+    private string $cpf;
+    private string $cnh;
+    private int $validadeCnh;
+
+    public function __construct(
+        string $nome,
+        string $cpf,
+        string $cnh,
+        int $validadeCnh
+    ) {
+
+        $this->nome = $nome;
         $this->cpf = $cpf;
         $this->cnh = $cnh;
         $this->validadeCnh = $validadeCnh;
     }
-    
-    public function getNome() {
+
+    public function getNome(): string {
         return $this->nome;
     }
 
-    public function getValidadeCnh() {
+    public function getValidadeCnh(): int {
         return $this->validadeCnh;
     }
-
-    
-    public function setNome($nome) {
-
-        if(empty($nome)) {
-            echo "Nome inválido!<br>";
-        } else {
-            $this->nome = $nome;
-        }
-    }
 }
+
 ?>
