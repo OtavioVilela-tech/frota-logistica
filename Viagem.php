@@ -33,4 +33,17 @@ class Viagem {
         $this->veiculo->viajar($this->distancia);
     }
 
+    public function relatorio(): void {
+
+        echo "Destino: " . $this->destino . "<br>";
+
+        echo "Motorista: " . $this->motorista->getNome() . "<br>";
+
+        echo "Veículo: " . $this->veiculo->getModelo() . "<br>";
+
+        echo "Combustível: " . $this->veiculo->getCombustivelAtual() . " litros<br>";
+
+    }
+}
+
 ?>
