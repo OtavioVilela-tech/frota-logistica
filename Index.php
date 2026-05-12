@@ -5,57 +5,77 @@ require_once 'Veiculo.php';
 require_once 'Viagem.php';
 
 
-$motorista1 = new Motorista(
-    "Otavio",
-    "111.111.111-11",
-    "12345",
-    2026
+echo "<h1>Sistema de Gestão de Frota</h1>";
+
+$nome = "Otávio";
+$cpf = "123.456.789-00";
+$cnh = "987654";
+$validadeCnh = 2026;
+
+$veiculo = "Caminhão Volvo";
+
+
+$motorista = new Motorista(
+    $nome,
+    $cpf,
+    $cnh,
+    $validadeCnh
 );
+
+
+$carro = new Veiculo(
+    "ABC-3948",
+    $veiculo,
+    100,
+    40
+);
+
+
+$carro->abastecer(20);
+
+$viagem = new Viagem(
+    "Belo Horizonte",
+    200,
+    $motorista,
+    $carro
+);
+
+$viagem->iniciarViagem();
+
+$viagem->relatorio();
+
+
+$nome2 = "Vinicius";
+$cpf2 = "999.888.777-00";
+$cnh2 = "123456";
+$validadeCnh2 = 2023;
+
+$veiculo2 = "Mercedes";
+
 
 $motorista2 = new Motorista(
-    "Vinicius",
-    "222.222.222-22",
-    "67890",
-    2020
+    $nome2,
+    $cpf2,
+    $cnh2,
+    $validadeCnh2
 );
 
 
-$veiculo1 = new Veiculo(
-    "ABC-1234",
-    "Volvo",
-    100,
-    20
-);
-
-$veiculo2 = new Veiculo(
+$carro2 = new Veiculo(
     "XYZ-5678",
-    "Mercedes",
+    $veiculo2,
     120,
-    50
+    60
 );
 
 
-echo "<h2>Teste 1</h2>";
-
-$viagem1 = new Viagem(
-    "São Paulo",
-    100,
-    $motorista2,
-    $veiculo1
-);
-
-$viagem1->iniciarViagem();
-
-
-echo "<h2>Teste 2</h2>";
-
-$veiculo1->abastecer(30);
+$carro2->abastecer(30);
 
 $viagem2 = new Viagem(
-    "Rio de janeiro",
-    200,
-    $motorista1,
-    $veiculo1
+    "São Paulo",
+    150,
+    $motorista2,
+    $carro2
 );
 
 $viagem2->iniciarViagem();
