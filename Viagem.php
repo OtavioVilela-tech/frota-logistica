@@ -22,18 +22,30 @@ class Viagem {
 
     public function iniciarViagem(): void {
 
-        if($this->motorista->getValidadeCnh() < 2026) {
+        echo "<h3>Dados do Motorista</h3>";
 
+        echo "Nome: " . $this->motorista->getNome() . "<br>";
+        echo "CPF: " . $this->motorista->getCpf() . "<br>";
+        echo "CNH: " . $this->motorista->getCnh() . "<br>";
+
+        if($this->motorista->getValidadeCnh() < 2024) {
+
+            echo "<br>Motorista NÃO pode dirigir.<br>";
             echo "CNH vencida.<br>";
+
             return;
         }
 
-        echo "Viagem iniciada.<br>";
+        echo "<br>Motorista autorizado a dirigir.<br>";
+
+        echo "Veículo utilizado: " . $this->veiculo->getModelo() . "<br><br>";
 
         $this->veiculo->viajar($this->distancia);
     }
 
     public function relatorio(): void {
+
+        echo "<hr>";
 
         echo "Destino: " . $this->destino . "<br>";
 
@@ -41,8 +53,10 @@ class Viagem {
 
         echo "Veículo: " . $this->veiculo->getModelo() . "<br>";
 
-        echo "Combustível: " . $this->veiculo->getCombustivelAtual() . " litros<br>";
+        echo "Combustível restante: ";
+        echo $this->veiculo->getCombustivelAtual() . " litros<br>";
 
+        echo "<hr>";
     }
 }
 

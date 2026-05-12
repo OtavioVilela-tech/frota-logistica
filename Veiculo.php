@@ -32,13 +32,13 @@ class Veiculo {
 
         if(($this->combustivelAtual + $litros) > $this->capacidadeTanque) {
 
-            echo "Tanque cheio!";
+            echo "Tanque cheio.<br>";
             return;
         }
 
         $this->combustivelAtual += $litros;
 
-        echo "Abastecido com $litros litros.";
+        echo "Veículo abastecido.<br>";
     }
 
     public function viajar(float $distancia): void {
@@ -47,13 +47,13 @@ class Veiculo {
 
         if($gasto > $this->combustivelAtual) {
 
-            echo "Combustível insuficiente.";
+            echo "Combustível insuficiente.<br>";
             return;
         }
 
         $this->combustivelAtual -= $gasto;
 
-        echo "Viagem realizada.";
+        echo "Viagem realizada.<br>";
     }
 }
 

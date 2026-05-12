@@ -24,6 +24,14 @@ class Motorista {
         return $this->nome;
     }
 
+    public function getCpf(): string {
+        return $this->cpf;
+    }
+
+    public function getCnh(): string {
+        return $this->cnh;
+    }
+
     public function getValidadeCnh(): int {
         return $this->validadeCnh;
     }
